@@ -140,6 +140,7 @@ class OrderLineTest extends ApiTestCaseBase
         $this->authed(self::BOB)->request('DELETE', '/api/orders/'.$alice['id'].'/lines/'.$line['id']);
 
         $this->assertResponseStatusCodeSame(403);
+
     }
 
     public function testRemovingAnUnknownLineIsNotFound(): void

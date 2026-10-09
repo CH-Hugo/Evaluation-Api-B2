@@ -17,7 +17,9 @@ use Symfony\Component\Uid\Uuid;
         uriTemplate: '/kitchen-tickets',
         paginationClientEnabled: false,
         output: KitchenTicketListOutput::class,
+
         provider: KitchenTicketCollectionProvider::class,
+        security: "is_granted('USER')",
     ),
 ])]
 #[ORM\Entity(repositoryClass: KitchenTicketRepository::class)]

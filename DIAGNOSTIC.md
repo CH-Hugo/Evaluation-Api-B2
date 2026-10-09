@@ -64,13 +64,13 @@ Une section par test en échec : renseignez ses quatre champs.
 
 ## testOpeningAnOrderIgnoresAnAbandonedOne
 
-**Symptôme** :
+**Symptôme** : les lignes de la commande ouverte par Bob : JSON reçu différent de l'attendu
 
-**Cause** :
+**Cause** : la ligne 23 dans le fichier SoftDeleteFilter.php:23 return sprintf('%s.deleted_by_id IS NULL', $targetTableAlias);
 
-**Règle du module en jeu** :
+**Règle du module en jeu** : 
 
-**Correctif** :
+**Correctif** : Il faut modifier deleted_by_id IS NULL en deleted_at IS NULL
 
 ## testPayingMyOrderMarksItPaid
 
@@ -84,13 +84,13 @@ Une section par test en échec : renseignez ses quatre champs.
 
 ## testRefreshingTwiceWithTheSameTokenIsUnauthorized
 
-**Symptôme** :
+**Symptôme** : Statut 401 attendu, 2OO reçu
 
-**Cause** :
+**Cause** : ça échouait parce que le jeton de renouvellement n'était pas à usage unique
 
-**Règle du module en jeu** :
+**Règle du module en jeu** : La sécurité de l'auth
 
-**Correctif** :
+**Correctif** : aller dans gesdinet_jwt_refresh_token.yaml et passer single_use: false en true
 
 ## testRemovingALineFromSomeoneElsesOrderIsForbidden
 
